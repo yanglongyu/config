@@ -1,0 +1,71 @@
+db:
+    ds:
+        common:
+            url: jdbc:mysql://10.100.11.147:3306/tuandaipe?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+            username: yonghui
+            password: yonghui
+            #连接池的配置信息
+            initialSize: 10
+            minIdle: 10
+            maxActive: 100
+            maxWait: 60000
+            timeBetweenEvictionRunsMillis: 60000
+            minEvictableIdleTimeMillis: 300000
+            validationQuery: SELECT 1 FROM DUAL
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true
+            maxPoolPreparedStatementPerConnectionSize: 20
+
+spring:
+    datasource:
+        url: jdbc:mysql://10.100.11.147:3306/tuandaipe?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: yonghui
+        password: yonghui
+        #连接池的配置信息
+        initialSize: 10
+        minIdle: 10
+        maxActive: 100
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 20
+    http:
+        multipart:
+            max-file-size: 100MB
+            max-request-size: 100MB
+            enabled: true
+    redis:
+        open: false  # 是否开启redis缓存  true开启   false关闭
+        database: 9
+        password: admin
+        sentinel:
+            master: mymaster
+            nodes: '10.100.11.211:26379,10.100.11.11:26379,10.100.11.17:26379'
+        timeout: 6000  # 连接超时时长（毫秒）
+        pool:
+            max-active: 100  # 连接池最大连接数（使用负值表示没有限制）
+            max-wait: -1      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+            max-idle: 10      # 连接池中的最大空闲连接
+            min-idle: 5       # 连接池中的最小空闲连接
+
+
+tuandai:
+  globals:
+    fileDomain: "http://pe.images.com"
+    picStoreRootPath: "D:\\data"
+    upload-dir-prefix: "ueditor/file/"
+    webHost: "https://www.paisheng.com"
+
+tuandai-api:
+  user-host: http://10.100.11.110:9207
+  user-token: A2F609DF1W3S06QRW2E
+  user-getUserInfo-token: PB3FS63W23LTD09P8I9
+  user-getUserInfoByUid: /SiMuFund/PostUserInfos
+  user-getUidByMobile: /NiwoPassport/PostGetUserIdByMobile
